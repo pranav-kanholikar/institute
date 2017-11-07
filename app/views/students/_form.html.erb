@@ -1,0 +1,27 @@
+<%= form_for @student, url: teacher_students_path(params[:teacher_id]) do |f| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>     
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :s_name %>
+    <%= f.text_field :s_name, id: :student_s_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :roll_no %>
+    <%= f.number_field :roll_no, id: :student_roll_no %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
